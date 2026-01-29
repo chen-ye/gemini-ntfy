@@ -1,0 +1,9 @@
+{
+  "name": "gemini-ntfy",
+  "displayName": "Gemini Ntfy Notifier",
+  "version": "0.1.0",
+  "description": "Sends notifications via ntfy.sh when the agent needs attention or finishes.",
+  "hooks": "./hooks/hooks.json",
+  "author": "User",
+  "license": "MIT"
+}

@@ -1,0 +1,30 @@
+{
+  "hooks": {
+    "AfterAgent": [
+      {
+        "matcher": "*",
+        "hooks": [
+          {
+            "name": "ntfy-after-agent",
+            "type": "command",
+            "command": "${extensionPath}/hooks/ntfy_hook.py gemini_alerts",
+            "timeout": 300000
+          }
+        ]
+      }
+    ],
+    "Notification": [
+      {
+        "matcher": "*",
+        "hooks": [
+          {
+            "name": "ntfy-notification",
+            "type": "command",
+            "command": "${extensionPath}/hooks/ntfy_hook.py gemini_alerts",
+            "timeout": 300000
+          }
+        ]
+      }
+    ]
+  }
+}
