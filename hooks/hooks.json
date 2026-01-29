@@ -7,7 +7,7 @@
           {
             "name": "ntfy-after-agent",
             "type": "command",
-            "command": "${extensionPath}/hooks/ntfy_hook.py gemini_alerts",
+            "command": "${extensionPath}/hooks/ntfy_hook.py",
             "timeout": 300000
           }
         ]
@@ -20,7 +20,7 @@
           {
             "name": "ntfy-notification",
             "type": "command",
-            "command": "${extensionPath}/hooks/ntfy_hook.py gemini_alerts",
+            "command": "${extensionPath}/hooks/ntfy_hook.py",
             "timeout": 300000
           }
         ]

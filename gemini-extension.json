@@ -4,6 +4,23 @@
   "version": "0.1.0",
   "description": "Sends notifications via ntfy.sh when the agent needs attention or finishes.",
   "hooks": "./hooks/hooks.json",
+  "settings": [
+    {
+      "name": "Ntfy Topic",
+      "description": "The ntfy topic to send notifications to. IMPORTANT: ntfy.sh topics are public by default; treat your topic name like a password (e.g., use a long random string).",
+      "envVar": "GEMINI_NTFY_TOPIC"
+    },
+    {
+      "name": "Ntfy Server",
+      "description": "The ntfy server URL (default: https://ntfy.sh).",
+      "envVar": "GEMINI_NTFY_SERVER"
+    },
+    {
+      "name": "Ntfy ID",
+      "description": "Unique ID for updating/replacing notifications (defaults to system hostname).",
+      "envVar": "GEMINI_NTFY_ID"
+    }
+  ],
   "author": "Chen Ye",
   "license": "MIT",
   "repository": {

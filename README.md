@@ -8,11 +8,18 @@ This extension sends notifications via [ntfy.sh](https://ntfy.sh) when the Gemin
 
 ## Configuration
 
-The extension uses the following environment variables:
+You can configure this extension using the following command:
 
-- `GEMINI_NTFY_TOPIC`: The topic to subscribe to (default: `gemini_alerts` passed as arg, or set via env).
-- `GEMINI_NTFY_SERVER`: The ntfy server URL (default: `https://ntfy.sh`).
-- `GEMINI_NTFY_ID`: Unique ID for updating notifications (default: hostname).
+```bash
+gemini extensions config gemini-ntfy
+```
+
+Available settings:
+
+- **Ntfy Topic** (`GEMINI_NTFY_TOPIC`): The topic to subscribe to.
+  - **IMPORTANT**: ntfy.sh topics are public by default. Treat your topic name like a password (e.g., use a long random string) to prevent others from reading your notifications.
+- **Ntfy Server** (`GEMINI_NTFY_SERVER`): The ntfy server URL (default: `https://ntfy.sh`).
+- **Ntfy ID** (`GEMINI_NTFY_ID`): Unique ID for updating notifications (default: hostname).
 
 ## Hooks
 
