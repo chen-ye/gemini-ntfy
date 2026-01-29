@@ -5,5 +5,9 @@
   "description": "Sends notifications via ntfy.sh when the agent needs attention or finishes.",
   "hooks": "./hooks/hooks.json",
   "author": "User",
-  "license": "MIT"
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/chen-ye/gemini-ntfy.git"
+  }
 }
