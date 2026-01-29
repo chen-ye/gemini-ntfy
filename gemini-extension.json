@@ -4,7 +4,7 @@
   "version": "0.1.0",
   "description": "Sends notifications via ntfy.sh when the agent needs attention or finishes.",
   "hooks": "./hooks/hooks.json",
-  "author": "User",
+  "author": "Chen Ye",
   "license": "MIT",
   "repository": {
     "type": "git",
