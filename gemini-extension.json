@@ -19,6 +19,11 @@
       "name": "Ntfy ID",
       "description": "Unique ID for updating/replacing notifications (defaults to system hostname).",
       "envVar": "GEMINI_NTFY_ID"
+    },
+    {
+      "name": "Click Action",
+      "description": "The URL or intent to open when the notification is clicked (defaults to opening Termux on Android).",
+      "envVar": "GEMINI_NTFY_CLICK"
     }
   ],
   "author": "Chen Ye",

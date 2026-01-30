@@ -9,7 +9,7 @@ def log(msg):
     """Logs message to stderr."""
     sys.stderr.write(f"[hook] {msg}\n")
 
-def send_ntfy(topic, title, message, notification_id=None, priority="default", tags=None):
+def send_ntfy(topic, title, message, notification_id=None, priority="default", tags=None, click=None):
     """Sends a notification via ntfy."""
     base_url = os.environ.get("GEMINI_NTFY_SERVER", "https://ntfy.sh").rstrip('/')
     url = f"{base_url}/{topic}"
@@ -29,6 +29,9 @@ def send_ntfy(topic, title, message, notification_id=None, priority="default", t
         
         if tags:
             req.add_header("Tags", ",".join(tags))
+
+        if click:
+            req.add_header("Click", click)
         
         with urllib.request.urlopen(req) as response:
             log(f"Notification sent to {url} (ID: {notification_id})")
@@ -48,6 +51,9 @@ def main():
 
     # Configuration: Get Notification ID (Environment Variable > Hostname)
     notification_id = os.environ.get("GEMINI_NTFY_ID", socket.gethostname())
+    
+    # Configuration: Click URL (defaults to opening Termux)
+    click_url = os.environ.get("GEMINI_NTFY_CLICK", "intent://#Intent;package=com.termux;end")
 
     # 2. Parse Input from stdin
     try:
@@ -66,12 +72,12 @@ def main():
     if event == "AfterAgent":
         # evergreen: prompt_response is provided directly
         response_text = data.get("prompt_response", "Agent finished execution.")
-        send_ntfy(topic, f"Gemini: {event}", response_text, notification_id, priority="default", tags=["diamond_shape_with_a_dot_inside"])
+        send_ntfy(topic, f"Gemini: {event}", response_text, notification_id, priority="default", tags=["diamond_shape_with_a_dot_inside"], click=click_url)
 
     elif event == "Notification":
         # evergreen: message is provided directly
         message = data.get("message", "User attention required.")
-        send_ntfy(topic, f"Gemini: {event}", message, notification_id, priority="default", tags=["hand"])
+        send_ntfy(topic, f"Gemini: {event}", message, notification_id, priority="default", tags=["hand"], click=click_url)
         
         # Feedback to the CLI
         print(json.dumps({"systemMessage": "Notification sent via ntfy." }))

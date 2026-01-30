@@ -20,6 +20,8 @@ Available settings:
   - **IMPORTANT**: ntfy.sh topics are public by default. Treat your topic name like a password (e.g., use a long random string) to prevent others from reading your notifications.
 - **Ntfy Server** (`GEMINI_NTFY_SERVER`): The ntfy server URL (default: `https://ntfy.sh`).
 - **Ntfy ID** (`GEMINI_NTFY_ID`): Unique ID for updating notifications (default: hostname).
+- **Click Action** (`GEMINI_NTFY_CLICK`): The URL or intent to open when the notification is clicked.
+  - **Note**: This defaults to `intent://#Intent;package=com.termux;end` which opens the **Termux** app on Android.
 
 ## Hooks
 
