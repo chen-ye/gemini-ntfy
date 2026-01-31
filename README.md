@@ -33,3 +33,12 @@ Available settings:
 
 - **AfterAgent**: Sends a notification with the agent's final response.
 - **Notification**: Sends a notification when the agent manually requests attention (e.g. asking for input).
+
+## Releasing
+
+To publish a new version:
+
+1.  Update the `version` field in `gemini-extension.json`.
+2.  Commit and push the change to the `main` branch.
+
+A GitHub Action will automatically detect the version change, create a git tag, and publish a GitHub Release.
